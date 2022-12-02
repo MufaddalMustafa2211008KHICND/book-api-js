@@ -1,7 +1,12 @@
 //Given that I visit the site, when I first start, I expect my list to be empty.
 
 test('Expecting Reading List to be empty at first', () => {
-    expect(ReadingList).toBe([]);
+
+    //act
+    const list = ReadingList
+
+    //assert
+    expect(list).toBe([]);
 })
 
 
@@ -49,3 +54,24 @@ test('', () => {
 
     expect(result).toBe(ans);
 })
+
+
+//Given that I have a book in my list,
+//when I call removeBook("<title>") with "title" representing the title of my book that I want to delete, 
+//then when I call getBooks() the book I deleted should no longer be there.
+
+test('I have a book in my List, when I deleteBook() with title, the book should not be there in the list', () => {
+    //arrange
+    const list = ReadingList;
+    const book1 = {title: 'Harry Potter 1', author: 'J. K. Rowling', length: 400, year: 2001};
+    list.addBook(book1);
+
+    //act
+    list.deleteBook('Harry Potter 1')
+    const books = list.getBooks()
+
+    //assert
+    expect(books.includes(book1)).toBe(false);
+})
+
+
