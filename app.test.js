@@ -6,10 +6,10 @@ const ReadingList = require('./app');
 test('Expecting Reading List to be empty at first', () => {
 
     //act
-    const list = ReadingList();
+    const list = new ReadingList();
 
     //assert
-    expect(list.length).toBe(0);
+    expect(list.getBooks().length).toBe(0);
 })
 
 
@@ -18,7 +18,7 @@ test('Expecting Reading List to be empty at first', () => {
 
 test('on adding a book to an empty List numberRead() should return one', () => {
     //arrange
-    const list = ReadingList;
+    const list = new ReadingList;
     
     //act
     const book = {title: 'Harry Potter', author: 'J. K. Rowling', length: 400, year: 2001};
