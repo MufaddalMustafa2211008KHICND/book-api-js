@@ -89,3 +89,27 @@ test('on Adding a new book to an empty list, then getBooks() should return the b
     //assert
     expect(list.getBooks().includes(newBook)).toBe(true)
 })
+
+
+//Given when I call getBooksByRating(), 
+//I should return a list of books that all have that rating.
+
+test('on Calling getBooksByRating(), it should return all books by that rating', () => {
+    //arrange
+    const list = ReadingList;
+    
+    const newBook1 = {title: 'Amazing Book1', author: 'Aiman', length: 2000, year: 2022};
+    const newBook2 = {title: 'Amazing Book2', author: 'Aiman', length: 2000, year: 2022};
+    list.addBook({book: newBook1, dateRead: 'nov 1, 2022', rating: 4});
+    list.addBook({book: newBook2, dateRead: 'nov 1, 2022', rating: 1});
+
+    //act
+
+    /*rating we are looking for is 4 */
+    let ourExpectedRating = 4
+
+    const bookByRating = list.getBooksByRating(ourExpectedRating)
+
+    //assert
+    expect(bookByRating[0].rating).toBe(ourExpectedRating)
+})
