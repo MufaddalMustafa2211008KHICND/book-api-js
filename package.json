@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest"
   },
-  "author": "Mufaddal",
+  "author": "Mufaddal Mustafa and Aiman Zaheer",
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.3.1"
