@@ -15,15 +15,12 @@ class ReadingList {
     }
 
     deleteBook = (title) => {
-        return this.list.filter((item, index, array) => {
-            if(item.book.title === title){
-                return false
-            }
-            else{
-                return true
-            }
+        this.list = this.list.filter((item, index, array) => {
+            return item.book.title !== title
         })
     }
+
+    
 }
 
 module.exports = ReadingList;

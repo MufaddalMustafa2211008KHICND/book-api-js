@@ -63,18 +63,32 @@ test('On Adding three books to an empty, numberRead() should return total number
 //when I call removeBook("<title>") with "title" representing the title of my book that I want to delete, 
 //then when I call getBooks() the book I deleted should no longer be there.
 
-test('I have one book in my List, when I deleteBook() with title, the book should not be there in the list', () => {
+test('I have a book in my List, when I deleteBook() with title, the book should not be there in the list', () => {
     //arrange
     const list = new ReadingList();
     const book1 = {title: 'Harry Potter 1', author: 'J. K. Rowling', length: 400, year: 2001};
+    const book2 = {title: 'Mewowwwwww', author: 'J. K. Rowling', length: 400, year: 2001};
     list.addBook({book: book1, dateRead: 'nov 1, 2022', rating: 4});
+    list.addBook({book: book2, dateRead: 'nov 1, 2022', rating: 4});
 
     //act
-    list.deleteBook('Harry Potter 1');
+    let bookToDelete = 'Harry Potter 1'
+    list.deleteBook(bookToDelete);
+
     const books = list.getBooks();
+    console.log(books)
+
 
     //assert
-    expect(books.includes(book1)).toBe(false);
+    let isBookInList = true;
+    
+    for(let i=0 ; i<books.length ; i++){
+        if(books[i].book.title !== bookToDelete){
+            isBookInList = false
+        } 
+    }
+
+    expect(isBookInList).toBe(false);
 })
 
 
@@ -88,7 +102,7 @@ test('on Adding a new book to an empty list, then getBooks() should return the b
     //act
     const newBook = {title: 'Amazing Book', author: 'Aiman', length: 2000, year: 2022};
     list.addBook({book: newBook, dateRead: 'nov 1, 2022', rating: 4});
-
+    //console.log(list.getBooks())
     //assert
     expect(list.getBooks().includes(newBook)).toBe(true)
 })
