@@ -16,9 +16,9 @@ test('Expecting Reading List to be empty at first', () => {
 //Given that I have an empty list,
 //when I add the first book to my list then I expect numberRead to return 1.
 
-test('on adding a book to an empty List numberRead() should return one', () => {
+test('on one book to an empty List numberRead() should return one', () => {
     //arrange
-    const list = new ReadingList;
+    const list = new ReadingList();
     
     //act
     const book = {title: 'Harry Potter', author: 'J. K. Rowling', length: 400, year: 2001};
@@ -35,9 +35,9 @@ test('on adding a book to an empty List numberRead() should return one', () => {
 //when I add additional books to the list 
 //I expect the numberRead to return the total number of books in my list.
 
-test('', () => {
+test('On Adding three books to an empty, numberRead() should return total number of books', () => {
     //arrange
-    const list = ReadingList;
+    const list = new ReadingList();
 
     //act
     const book1 = {title: 'Harry Potter 1', author: 'J. K. Rowling', length: 400, year: 2001};
@@ -63,9 +63,9 @@ test('', () => {
 //when I call removeBook("<title>") with "title" representing the title of my book that I want to delete, 
 //then when I call getBooks() the book I deleted should no longer be there.
 
-test('I have a book in my List, when I deleteBook() with title, the book should not be there in the list', () => {
+test('I have one book in my List, when I deleteBook() with title, the book should not be there in the list', () => {
     //arrange
-    const list = ReadingList;
+    const list = new ReadingList();
     const book1 = {title: 'Harry Potter 1', author: 'J. K. Rowling', length: 400, year: 2001};
     list.addBook({book: book1, dateRead: 'nov 1, 2022', rating: 4});
 
