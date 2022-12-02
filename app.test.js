@@ -19,7 +19,7 @@ test('on adding a book to an empty List numberRead() should return one', () => {
     
     //act
     const book = {title: 'Harry Potter', author: 'J. K. Rowling', length: 400, year: 2001};
-    list.addBook(book);
+    list.addBook({book: book, dateRead: 'nov 1, 2022', rating: 5});
 
     const result = list.numberRead();
 
@@ -41,9 +41,9 @@ test('', () => {
     const book2 = {title: 'Harry Potter 2', author: 'J. K. Rowling', length: 400, year: 2001};
     const book3 = {title: 'Harry Potter 1000', author: 'Mufaddal', length: 400, year: 1800};
 
-    list.addBook(book1);
-    list.addBook(book2);
-    list.addBook(book3);
+    list.addBook({book: book1, dateRead: 'nov 1, 2022', rating: 4});
+    list.addBook({book: book2, dateRead: 'nov 1, 2022', rating: 4});
+    list.addBook({book: book3, dateRead: 'nov 1, 2022', rating: 4});
 
     //assert
 
@@ -64,7 +64,7 @@ test('I have a book in my List, when I deleteBook() with title, the book should 
     //arrange
     const list = ReadingList;
     const book1 = {title: 'Harry Potter 1', author: 'J. K. Rowling', length: 400, year: 2001};
-    list.addBook(book1);
+    list.addBook({book: book1, dateRead: 'nov 1, 2022', rating: 4});
 
     //act
     list.deleteBook('Harry Potter 1');
@@ -84,7 +84,7 @@ test('on Adding a new book to an empty list, then getBooks() should return the b
 
     //act
     const newBook = {title: 'Amazing Book', author: 'Aiman', length: 2000, year: 2022};
-    list.addBook(newBook);
+    list.addBook({book: newBook, dateRead: 'nov 1, 2022', rating: 4});
 
     //assert
     expect(list.getBooks().includes(newBook)).toBe(true)
@@ -97,7 +97,7 @@ test('on Adding a new book to an empty list, then getBooks() should return the b
 test('on Calling getBooksByRating(), it should return all books by that rating', () => {
     //arrange
     const list = ReadingList;
-    
+
     const newBook1 = {title: 'Amazing Book1', author: 'Aiman', length: 2000, year: 2022};
     const newBook2 = {title: 'Amazing Book2', author: 'Aiman', length: 2000, year: 2022};
     list.addBook({book: newBook1, dateRead: 'nov 1, 2022', rating: 4});
