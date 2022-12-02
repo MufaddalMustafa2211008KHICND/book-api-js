@@ -67,11 +67,25 @@ test('I have a book in my List, when I deleteBook() with title, the book should 
     list.addBook(book1);
 
     //act
-    list.deleteBook('Harry Potter 1')
-    const books = list.getBooks()
+    list.deleteBook('Harry Potter 1');
+    const books = list.getBooks();
 
     //assert
     expect(books.includes(book1)).toBe(false);
 })
 
 
+//Given that I have an empty list,
+//when I add a new book I expect getBooks() to return a list of books that includes the book I added.
+
+test('on Adding a new book to an empty list, then getBooks() should return the book I added', () => {
+    //arrange
+    const list = ReadingList;
+
+    //act
+    const newBook = {title: 'Amazing Book', author: 'Aiman', length: 2000, year: 2022};
+    list.addBook(newBook);
+
+    //assert
+    expect(list.getBooks().includes(newBook)).toBe(true)
+})
