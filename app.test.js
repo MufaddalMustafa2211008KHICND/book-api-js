@@ -1,12 +1,15 @@
+const ReadingList = require('./app');
+
+
 //Given that I visit the site, when I first start, I expect my list to be empty.
 
 test('Expecting Reading List to be empty at first', () => {
 
     //act
-    const list = ReadingList
+    const list = ReadingList();
 
     //assert
-    expect(list).toBe([]);
+    expect(list.length).toBe(0);
 })
 
 
