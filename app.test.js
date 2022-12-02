@@ -76,12 +76,11 @@ test('I have a book in my List, when I deleteBook() with title, the book should 
     list.deleteBook(bookToDelete);
 
     const books = list.getBooks();
-    console.log(books)
 
 
     //assert
     let isBookInList = true;
-    
+
     for(let i=0 ; i<books.length ; i++){
         if(books[i].book.title !== bookToDelete){
             isBookInList = false
@@ -102,9 +101,10 @@ test('on Adding a new book to an empty list, then getBooks() should return the b
     //act
     const newBook = {title: 'Amazing Book', author: 'Aiman', length: 2000, year: 2022};
     list.addBook({book: newBook, dateRead: 'nov 1, 2022', rating: 4});
-    //console.log(list.getBooks())
+    console.log(list.getBooks())
+
     //assert
-    expect(list.getBooks().includes(newBook)).toBe(true)
+    expect(list.getBooks()[0].book).toBe(newBook)
 })
 
 
