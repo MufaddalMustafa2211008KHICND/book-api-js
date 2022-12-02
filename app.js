@@ -20,6 +20,11 @@ class ReadingList {
         })
     }
 
+    getBooksByRating = (rating) => {
+        return this.list.filter((item, index, array) => {
+            return item.rating === rating
+        })
+    }
     
 }
 

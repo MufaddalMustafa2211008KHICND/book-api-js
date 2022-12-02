@@ -101,7 +101,6 @@ test('on Adding a new book to an empty list, then getBooks() should return the b
     //act
     const newBook = {title: 'Amazing Book', author: 'Aiman', length: 2000, year: 2022};
     list.addBook({book: newBook, dateRead: 'nov 1, 2022', rating: 4});
-    console.log(list.getBooks())
 
     //assert
     expect(list.getBooks()[0].book).toBe(newBook)
@@ -113,20 +112,32 @@ test('on Adding a new book to an empty list, then getBooks() should return the b
 
 test('on Calling getBooksByRating(), it should return all books by that rating', () => {
     //arrange
-    const list = ReadingList;
+    const list = new ReadingList();
 
     const newBook1 = {title: 'Amazing Book1', author: 'Aiman', length: 2000, year: 2022};
     const newBook2 = {title: 'Amazing Book2', author: 'Aiman', length: 2000, year: 2022};
+    const newBook3 = {title: 'Amazing Book3', author: 'Aiman', length: 2000, year: 2022};
     list.addBook({book: newBook1, dateRead: 'nov 1, 2022', rating: 4});
     list.addBook({book: newBook2, dateRead: 'nov 1, 2022', rating: 1});
+    list.addBook({book: newBook3, dateRead: 'nov 1, 2022', rating: 4});
 
     //act
 
     /*rating we are looking for is 4 */
-    let ourExpectedRating = 4
+    let ourExpectedRating = 4;
 
     const bookByRating = list.getBooksByRating(ourExpectedRating)
 
     //assert
-    expect(bookByRating[0].rating).toBe(ourExpectedRating)
+
+    let allBooksAreByExpectedRating = true;
+
+    for(let i=0 ; i<bookByRating.length ; i++){
+        console.log(bookByRating[i].book.title, bookByRating[i].rating)
+        if(bookByRating[i].rating !== ourExpectedRating){
+            isBookInList = false
+        } 
+    }
+
+    expect(allBooksAreByExpectedRating).toBe(true)
 })
