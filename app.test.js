@@ -83,7 +83,7 @@ test('I have one book in my List, when I deleteBook() with title, the book shoul
 
 test('on Adding a new book to an empty list, then getBooks() should return the book I added', () => {
     //arrange
-    const list = ReadingList;
+    const list = new ReadingList();
 
     //act
     const newBook = {title: 'Amazing Book', author: 'Aiman', length: 2000, year: 2022};

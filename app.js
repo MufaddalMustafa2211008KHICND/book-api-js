@@ -13,6 +13,17 @@ class ReadingList {
     numberRead = () => {
         return this.list.length;
     }
+
+    deleteBook = (title) => {
+        return this.list.filter((item, index, array) => {
+            if(item.book.title === title){
+                return false
+            }
+            else{
+                return true
+            }
+        })
+    }
 }
 
 module.exports = ReadingList;
